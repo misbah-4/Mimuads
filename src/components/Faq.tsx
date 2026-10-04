@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { faqs } from '../content'
+import { faqs, links } from '../content'
 import { Icon } from './Icon'
 
 export function Faq() {
@@ -7,26 +7,20 @@ export function Faq() {
   return (
     <section className="section section-alt" id="faq">
       <div className="container faq-wrap">
-        <div className="section-head faq-head reveal">
-          <span className="eyebrow">FAQ</span>
+        <div className="faq-head reveal">
           <h2>
-            Questions <em>&amp; Answers</em>
+            Questions? <em>Answered.</em>
           </h2>
           <p>
-            Can't find what you need? Email <a href="mailto:hello@usemimu.com">hello@usemimu.com</a>.
+            Anything else? <a href={links.email}>hello@usemimu.com</a>
           </p>
         </div>
         <div className="faq-list">
           {faqs.map((f, i) => {
             const isOpen = open === i
             return (
-              <div key={f.q} className={`faq reveal ${isOpen ? 'is-open' : ''}`}>
-                <button
-                  className="faq-q"
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-${i}`}
-                  onClick={() => setOpen(isOpen ? null : i)}
-                >
+              <div key={f.q} className={`faq ${isOpen ? 'is-open' : ''}`}>
+                <button className="faq-q" aria-expanded={isOpen} aria-controls={`faq-${i}`} onClick={() => setOpen(isOpen ? null : i)}>
                   <span>{f.q}</span>
                   <span className="faq-icon">
                     <Icon name="plus" size={18} />

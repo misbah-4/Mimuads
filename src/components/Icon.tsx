@@ -44,6 +44,12 @@ const paths: Record<string, React.ReactNode> = {
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
   arrowDown: <path d="M12 5v14M6 13l6 6 6-6" />,
   plus: <path d="M12 5v14M5 12h14" />,
+  play: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="3" />
+      <path d="m10 9 5 3-5 3V9Z" fill="currentColor" />
+    </>
+  ),
   sun: (
     <>
       <circle cx="12" cy="12" r="4" />

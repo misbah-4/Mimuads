@@ -1,106 +1,51 @@
-import { heroStats, heroWords, links } from '../content'
-import { useCycle } from '../hooks'
-import { Icon, Logo } from './Icon'
+import { links, proof } from '../content'
+import { Icon } from './Icon'
+import { ShopStreet } from './Illustrations'
 import { StoreBadges } from './StoreBadges'
 
 export function Hero() {
-  const { item: word } = useCycle(heroWords, 2200)
-
   return (
     <section className="hero" id="top">
-      <div className="hero-panel">
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="hero-copy">
-          <span className="eyebrow eyebrow-on-dark">
-            <span className="live-dot" /> AI-Powered · Digital Out-of-Home · Global
-          </span>
-          <h1 className="hero-title">
-            Your{' '}
-            <span className="word-swap" aria-live="polite">
-              <span key={word} className="word-swap-inner">
-                {word}
-              </span>
-            </span>
-            . On digital screens where your <em>audience is.</em>
-          </h1>
-          <p className="hero-sub">
-            The first AI-native outdoor ad platform in Africa. Launch campaigns yourself — no agency needed. AI handles
-            targeting, compliance, and viewership verification automatically.
-          </p>
-          <div className="hero-ctas">
-            <a className="btn btn-light btn-lg" href={links.signup}>
-              Start a Campaign <Icon name="arrow" size={18} />
-            </a>
-            <a className="btn btn-outline-light btn-lg" href="#how">
-              See how it works <Icon name="arrowDown" size={18} />
-            </a>
-          </div>
-          <StoreBadges />
+      <div className="hero-copy">
+        <span className="tag">
+          <span className="live-dot" /> Now live across Lagos
+        </span>
+        <h1>
+          Your brand, on screens where your <em>customers are.</em>
+        </h1>
+        <p>Advertise on digital screens inside pharmacies, eateries and salons. Launch from your phone — live in 24 hours.</p>
+        <div className="hero-ctas">
+          <a className="btn btn-primary btn-lg" href={links.signup}>
+            Start a campaign <Icon name="arrow" size={18} />
+          </a>
+          <a className="btn btn-ghost btn-lg" href={links.hostApply}>
+            Host a screen
+          </a>
         </div>
-
-        <div className="hero-visual" aria-hidden="true">
-          <div className="screen">
-            <div className="screen-bezel">
-              <div className="ad-slide">
-                <span className="ad-slide-brand">
-                  <Logo size={18} />
-                </span>
-                <span className="ad-slide-word" key={word}>
-                  Your {word}
-                  <span>here.</span>
-                </span>
-                <span className="ad-slide-meta">Pharmacy · Yaba · 09:41</span>
-              </div>
-              <video
-                src="/fallback/mimu_m_clay.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                onPlaying={(e) => e.currentTarget.classList.add('is-playing')}
-              />
-              <span className="screen-tag">
-                <span className="live-dot" /> LIVE · LAGOS
-              </span>
-            </div>
-            <div className="screen-stand" />
-          </div>
-
-          <div className="float-card float-a">
-            <span className="float-label">Verified views today</span>
-            <strong>30.2M</strong>
-            <span className="float-trend">↑ 12.4%</span>
-          </div>
-          <div className="float-card float-b">
-            <span className="float-icon">
-              <Icon name="pin" size={18} />
-            </span>
-            <div>
-              <strong>Pharmacy, Yaba</strong>
-              <span className="float-label">Screen #LK-312 added</span>
-            </div>
-          </div>
-          <div className="float-card float-c">
-            <span className="float-label">Cost</span>
-            <strong>
-              ₦0.12<small>/ verified view</small>
-            </strong>
-          </div>
-        </div>
-
-        <p className="hero-caption">
-          An ad. On a screen. In a shop. <span>Where the customer already is.</span>
-        </p>
       </div>
 
-      <ul className="stat-strip">
-        {heroStats.map((s) => (
-          <li key={s.label}>
-            <strong>{s.value}</strong>
-            <span>{s.label}</span>
+      <div className="hero-stage">
+        <ShopStreet />
+        <div className="chip chip-a">
+          <span className="live-dot" /> Ad live · Pharmacy, Yaba
+        </div>
+        <div className="chip chip-b">
+          <span className="chip-icon">
+            <Icon name="eye" size={16} />
+          </span>
+          +1 verified view
+        </div>
+      </div>
+
+      <ul className="proof">
+        {proof.map((p) => (
+          <li key={p.label}>
+            <Icon name={p.icon} size={18} />
+            {p.label}
           </li>
         ))}
       </ul>
+      <StoreBadges className="hero-badges" />
     </section>
   )
 }
