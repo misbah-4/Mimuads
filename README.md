@@ -23,4 +23,4 @@ npm run preview   # serve dist/
 - `src/hooks.ts` — scroll reveal
 - `public/fonts/` — Aeonik (licensed to Mimuads), `public/fallback/` — logo screen loops
 
-Light/dark mode follows the OS setting.
+The site is light mode only.
